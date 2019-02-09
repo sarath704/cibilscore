@@ -1,0 +1,119 @@
+{% extends 'bankadmin/bankadmindesign.html' %}
+{% block bankadminblock %}
+{% load staticfiles %}
+<style>
+    .cibilscore{
+    position: absolute;
+    top:130px;
+    left:340px;
+    padding:3px;
+    width:500px;
+}
+
+.cibilscore table{
+    width:30em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:
+}
+
+
+.cibilscore table tr th{
+background:rgba(0, 0, 255,0.3);
+padding:3px;
+}
+.cibilscore table tr td{
+background:rgba(0, 0, 255,0.6);
+padding:3px;
+}
+.cibilscore table tr:hover td{
+background:rgba(0,0,255,0.3);
+}
+.view{
+    position: absolute;
+    top:250px;
+    left:340px;
+    padding:5px;
+
+}
+
+.view table{
+    width:38em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.view table tr th{
+background:rgb(0, 102, 0);
+padding:5px;
+}
+.view table tr td{
+background:rgba(0, 102, 0,0.4);
+padding:5px;
+}
+.view table tr:hover td{
+background:rgba(0,0,0,0.5);
+}
+.responseimage{
+ border-style:solid;
+ border-width:1px;
+ height:180px;
+ width:250px;
+ margin-top:-190px;
+ margin-left:-300px;
+ background: url("{% static 'image8.jpg' %}");
+ background-size:100%100%;
+
+ }
+
+
+</style>
+
+<div class="cibilscore">
+<form method="post" autocomplete="off">
+
+    {% csrf_token %}
+<table>
+    <tr>
+        <td style="color:orange"><label>Name</label></td>
+
+        <td><input type="text" name="pannum" placeholder="enter your name" required></td>
+    </tr>
+
+     <tr>
+        <td style="color:orange"><label>Pancard</label></td>
+
+        <td><input type="text" name="pannum" placeholder="enter pan number" required></td>
+    </tr><tr>
+        <td colspan="3" style="text-align:center"><input type="submit" name="submit" value="submit"><br></td>
+    </tr>
+
+</table>
+</form>
+</div><div class="view">
+<table>
+    <tr>
+        <th style="color:yellow">Name</th>
+        <th style="color:yellow">PanCard Number</th>
+        <th style="color:yellow">Mobile Number</th>
+        <th style="color:yellow">CIBIL Score</th>
+    </tr>
+    {% for o in obj %}
+    <tr>
+        <td style="color:white"> {{o.name}}</td>
+        <td style="color:white"> {{o.pancard}}</td>
+        <td style="color:white">{{o.mobilenumber}}</td>
+        <td style="color:white">{{o.result}}</td>
+    {% endfor %}
+    </tr>
+</table>
+    <div class="responseimage"></div>
+</div>
+
+
+
+{% endblock %}

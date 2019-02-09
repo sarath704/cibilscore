@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+        height:600px;
+        width:900px;
+         background: url("{% static 'image.jpg' %}");
+         background-repeat: no-repeat;
+          background-size: ;
+
+
+         }
+ .login{
+ padding:50px;
+ border-style:solid;
+ border-width:1px;
+ height:80px;
+ width:250px;
+ margin-left:450px;
+ margin-top:258px;
+ background-color:rgba(0,0,0,0.5);
+ }
+ .loginpage{
+ border-style:solid;
+ border-width:1px;
+ height:180px;
+ width:350px;
+ margin-top:-170px;
+ margin-left:-430px;
+ background: url("{% static 'image10.gif' %}");
+ background-size:100%100%;
+
+ }
+ .rejectimage{
+ border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:380px;
+ margin-top:-310px;
+ margin-left:380px;
+ background: url("{% static 'image12.png' %}");
+ background-size:100%100%;
+
+ }
+
+
+    </style>
+</head>
+<body>
+<h1 style="text-align:center;color:white;margin-left:400px">CIBIL SCORE SYSTEM</h1>
+<div class="login">
+    <form method="post" autocomplete="off">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td style="color:pink">UserId</td>
+            <td><input type="text" name="userid" value="" style="color: ;);"> </td>
+        </tr>
+        <tr>
+            <td><p style="margin-top:10px;color:pink">Password</td>
+            <td><input type="password" name="password" value=""></td>
+        </tr>
+        <tr>
+            <td style="text-align:center;" colspan="2"><input type="submit" name="submit" value="submit" style="color:blue; background-color:pink"></td>
+        </tr>
+        <tr>
+            <td style="color:pink"><a href="{% url 'register' %}" style="color:pink;text-decoration:none"> New user</a></td>
+        </tr>
+    </table>
+    </form>
+<div class="loginpage"></div>
+<div class="rejectimage"></div>
+</div>
+
+
+</body>
+</html>

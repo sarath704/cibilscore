@@ -1,0 +1,96 @@
+{% extends 'cibiladmin/cibiladmindesign.html' %}
+{% block cibilblock %}
+{% load staticfiles %}
+
+<style>
+    .viewuserdetails{
+     position: absolute;
+    top:20px;
+    left:px;
+    padding:5px;
+    height:400px;
+    width:1300px;
+    overflow:scroll;
+    }
+    .viewuserdetails table{
+    width:150em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.viewuserdetails table tr th{
+background:rgb(0, 102, 0);
+padding:5px;
+}
+.viewuserdetails table tr td{
+background:rgba(0, 102, 0,0.4);
+padding:5px;
+}
+.viewuserdetails table tr:hover td{
+background:rgba(0,0,0,0.5);
+}
+
+
+
+</style>
+
+
+
+<div class="viewuserdetails">
+    {% csrf_token %}
+<table>
+    <tr>
+        <th style="color:yellow">Name</th>
+        <th style="color:yellow">FatherName</th>
+        <th style="color:yellow">MotherName</th>
+        <th style="color:yellow">DateOfBirth</th>
+        <th style="color:yellow">Age</th>
+        <th style="color:yellow">Gender</th>
+        <th style="color:yellow">MaritalStatus</th>
+        <th style="color:yellow">MobileNumber</th>
+        <th style="color:yellow">EmailId</th>
+        <th style="color:yellow">Qualification</th>
+        <th style="color:yellow">Incomeyearly</th>
+        <th style="color:yellow">PancardNumber</th>
+        <th style="color:yellow">AadharNumber</th>
+        <th style="color:yellow">Address</th>
+        <th style="color:yellow">City</th>
+
+
+    </tr>
+    <tr>
+    {% for object in list_objects %}
+          <td style="color:white">{{object.name}}</td>
+        <td style="color:white">{{object.fathername}}</td>
+         <td style="color:white">{{object.mothername}}</td>
+         <td style="color:white">{{object.dob}}</td>
+         <td style="color:white">{{object.age}}</td>
+         <td style="color:white">{{object.gender}}</td>
+         <td style="color:white">{{object.maritalstatus}}</td>
+         <td style="color:white">{{object.mobilenumber}}</td>
+         <td style="color:white">{{object.emailid}}</td>
+         <td style="color:white">{{object.qualification}}</td>
+         <td style="color:white">{{object.income}}</td>
+         <td style="color:white">{{object.panno}}</td>
+         <td style="color:white">{{object.aadharnumber}}</td>
+         <td style="color:white">{{object.address}}</td>
+         <td style="color:white">{{object.city}}</td>
+
+
+
+</tr>
+    {% endfor %}
+</table>
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}

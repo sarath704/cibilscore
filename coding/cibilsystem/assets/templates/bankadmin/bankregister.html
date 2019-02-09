@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" autocomplete="off">
+
+    {% csrf_token %}
+<table>
+    <tr>
+        <td style="color:"><label>First Name</label></td>
+
+        <td>{{form.firstname}}</td>
+    </tr><tr>
+        <td style="color:"><label>Last Name</label></td>
+
+        <td>{{form.lastname}}</td>
+    </tr><tr>
+        <td style="color:"><label>User ID</label></td>
+
+        <td>{{form.userid}}</td>
+    </tr><tr>
+        <td style="color:"><label>Password</label></td>
+
+        <td>{{form.password}}</td>
+    </tr><tr>
+        <td style="color:"><label>MobileNumber</label></td>
+
+        <td>{{form.mobilenumber}}</td>
+    </tr><tr>
+        <td style="color:"><label>Email Id</label></td>
+
+        <td>{{form.emailid}}</td>
+    </tr><tr>
+        <td style="color:"><label>Gender</label></td>
+
+        <td>{{form.gender}}</td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align:center"><input type="submit" name="submit" value="submit"><br></td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>

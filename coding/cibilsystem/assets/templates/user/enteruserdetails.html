@@ -1,0 +1,121 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+     .upload{
+    position: absolute;
+    top:-10px;
+    left:10px;
+    padding:3px;
+    width:500px;
+}
+
+.upload table{
+    width:50em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:
+}
+
+
+.upload table tr th{
+background:rgba(0, 0, 255,0.3);
+padding:3px;
+}
+.upload table tr td{
+background:rgba(0, 0, 255,0.6);
+padding:3px;
+}
+.upload table tr:hover td{
+background:rgba(0,0,255,0.3);
+}
+.log{
+ border-style:solid;
+ border-width:1px;
+ height:480px;
+ width:460px;
+ margin-top:-480px;
+ margin-left:840px;
+ background: url("{% static 'image1.png' %}");
+ background-size: cover;
+
+ }
+</style>
+<div class="upload">
+<form method="post" autocomplete="off">
+
+    {% csrf_token %}
+<table>
+    <tr>
+        <td style="color:orange"><label>Name</label></td>
+
+        <td>{{form.name}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Father Name</label></td>
+
+        <td>{{form.fathername}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Mother Name</label></td>
+
+        <td>{{form.mothername}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>DateOfBirth</label></td>
+
+        <td>{{form.dob}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Age</label></td>
+
+        <td>{{form.age}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Gender</label></td>
+
+        <td>{{form.gender}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>MaritalStatus</label></td>
+
+        <td>{{form.maritalstatus}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>MobileNumber</label></td>
+
+        <td>{{form.mobilenumber}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>EmailId</label></td>
+
+        <td>{{form.emailid}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Qualification</label></td>
+
+        <td>{{form.qualification}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Income(yearly)</label></td>
+
+        <td>{{form.income}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Pancard Number</label></td>
+
+        <td>{{form.panno}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Aadhar Number</label></td>
+
+        <td>{{form.aadharnumber}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>Address</label></td>
+
+        <td>{{form.address}}</td>
+    </tr><tr>
+        <td style="color:orange"><label>City</label></td>
+
+        <td>{{form.city}}</td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align:center"><input type="submit" name="submit" value="submit"><br></td>
+    </tr>
+</table>
+</form>
+    <div class="log"></div>
+</div>
+
+
+
+{% endblock %}

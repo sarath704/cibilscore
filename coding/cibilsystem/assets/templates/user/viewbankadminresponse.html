@@ -1,0 +1,85 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+.bankresponse{
+    position: absolute;
+    top:50px;
+    left:340px;
+    padding:5px;
+
+}
+
+.bankresponse table{
+    width:38em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.bankresponse table tr th{
+background:rgb(0, 102, 0);
+padding:5px;
+}
+.bankresponse table tr td{
+background:rgba(0, 102, 0,0.4);
+padding:5px;
+}
+.bankresponse table tr:hover td{
+background:rgba(0,0,0,0.5);
+}
+.responseimage{
+ border-style:solid;
+ border-width:1px;
+ height:180px;
+ width:350px;
+ margin-top:10px;
+ margin-left:-390px;
+ background: url("{% static 'image5.jpg' %}");
+ background-size:100%100%;
+
+ }
+ .rejectimage{
+ border-style:solid;
+ border-width:1px;
+ height:180px;
+ width:330px;
+ margin-top:-180px;
+ margin-left:620px;
+ background: url("{% static 'image4.png' %}");
+ background-size:100%100%;
+
+ }
+
+
+</style>
+<div class="bankresponse">
+    <table>
+    <tr>
+        <th style="color:yellow">Name</th>
+        <th style="color:yellow">MobileNumber</th>
+        <th style="color:yellow">EmailId</th>
+        <th style="color:yellow">LoanType</th>
+        <th style="color:yellow">Request Status</th>
+
+    </tr>
+    <tr>
+    {% for object in list_objects %}
+          <td style="color:white">{{object.name}}</td>
+          <td style="color:white">{{object.phonenumber}}</td>
+          <td style="color:white">{{object.emailid}}</td>
+          <td style="color:white">{{object.loantype}}</td>
+          <td style="color:white">{{object.requestStatus}}</td>
+
+
+        </tr>
+     </tr>
+    {% endfor %}
+</table>
+    <div class="responseimage"></div>
+    <div class="rejectimage"></div>
+    </div>
+
+{% endblock %}

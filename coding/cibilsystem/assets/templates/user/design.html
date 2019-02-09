@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .menu table{
+          width:100%;
+          text-align:center;
+          }
+          .menu table td:hover{
+          background:rgba(0, 0, 255,0.7);
+          }
+          .menu table td{
+          background:rgba(0, 0,0,0.9);
+         }
+          .menu table,.menu table th,.menu table td {
+    border: 1px solid rgba(255, 153, 153,0.5);
+    border-collapse: collapse;
+}
+.menu table th,.menu table  td {
+    padding: 15px;
+    }
+
+    .background-image{
+          position: fixed;
+          right:0;
+          left:0;
+          height: 630px;
+          background: url("{% static 'image.jpg'%}");
+          background-size: 100%100%;
+          filter: blur(px);
+          z-index:1;
+          display: block;
+          }
+          .topic h1{
+          color:pink;
+          padding:2px;
+          text-align:center;
+          }
+          .mainholder{
+
+          position:relative;
+          top:150px;
+          left:50px;
+          z-index:999;
+          }
+
+    </style>
+</head>
+<body>
+<div class="background-image">
+    <div class="topic"><h1>CIBIL SCORE SYSTEM</h1></div>
+<div class="menu">
+        <table>
+            <tr>
+                <td><a  style="color:pink;text-decoration: none;" href="{% url 'enteruserdetails' %}">ENTERDETAILS</a></td>
+                <td><a  style="color:pink;text-decoration: none;" href="{% url 'cibilscore' %}">CIBIL SCORE</a></td>
+                <td><a  style="color:pink;text-decoration: none;" href="{% url 'loanrequest' %}">LOAN APPLING</a></td>
+                <td><a  style="color:pink;text-decoration: none;" href="{% url 'viewbankadminresponse' %}">BANK RESPONCE</a></td>
+                <td><a  style="color:pink;text-decoration: none;" href="{% url 'index' %}">LOGOUT</a></td>
+
+
+
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="mainholder">
+{% block userblock %}
+{% endblock %}
+</div>
+
+</body>
+</html>

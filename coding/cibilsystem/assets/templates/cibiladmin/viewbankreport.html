@@ -1,0 +1,93 @@
+{% extends 'cibiladmin/cibiladmindesign.html' %}
+{% block cibilblock %}
+{% load staticfiles %}
+<style>
+    .bankreport{
+     position: absolute;
+    top:20px;
+    left:px;
+    padding:5px;
+    height:400px;
+    width:1300px;
+    overflow:scroll;
+    }
+    .bankreport table{
+    width:150em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.bankreport table tr th{
+background:rgb(0, 102, 0);
+padding:5px;
+}
+.bankreport table tr td{
+background:rgba(0, 102, 0,0.4);
+padding:5px;
+}
+.bankreport table tr:hover td{
+background:rgba(0,0,0,0.5);
+}
+
+
+
+
+
+</style>
+ {% csrf_token %}
+<div class="bankreport">
+<table>
+    <tr>
+        <th style="color:yellow">Name</th>
+        <th style="color:yellow">Pan Card</th>
+        <th style="color:yellow">Mobile Number</th>
+        <th style="color:yellow">LoanType</th>
+        <th style="color:yellow">LoanAmount</th>
+        <th style="color:yellow">LoanDuration</th>
+        <th style="color:yellow">ComplateDuration</th>
+        <th style="color:yellow">Total Amount</th>
+        <th style="color:yellow">PaidAmount</th>
+        <th style="color:yellow">BalanceAmount</th>
+        <th style="color:yellow">MinimamBalanceFine</th>
+        <th style="color:yellow">ATM Fine</th>
+        <th style="color:yellow">ModificationFine</th>
+        <th style="color:yellow">CheckBounch</th>
+
+        <th style="color:yellow">CreditDetails</th>
+
+
+        <th style="color:yellow">Result</th>
+        <th style="color:yellow">Update</th>
+    </tr>
+    <tr>
+    {% for object in list_object %}
+          <td style="color:white">{{object.name}}</td>
+          <td style="color:white">{{object.pancard}}</td>
+          <td style="color:white">{{object.mobilenumber}}</td>
+        <td style="color:white">{{object.loantype}}</td>
+          <td style="color:white">{{object.loancount}}</td>
+          <td style="color:white">{{object.loanduration}}</td>
+          <td style="color:white">{{object.complateduration}}</td>
+        <td style="color:white">{{object.totalamount}}</td>
+          <td style="color:white">{{object.paidamount}}</td>
+          <td style="color:white">{{object.balanceamount}}</td>
+          <td style="color:white">{{object.minimambalancefine}}</td>
+          <td style="color:white">{{object.atmusagefine}}</td>
+          <td style="color:white">{{object.modificationfine}}</td>
+          <td style="color:white">{{object.checkbounch}}</td>
+
+
+          <td style="color:white">{{object.creditdetails}}</td>
+
+
+          <td style="color:white">{{object.result}}</td>
+        <td><a href="{% url 'updatebankreport' object.id %}" style="text-decoration:none;color:white">Update</a></td>
+
+              </tr>
+    {% endfor %}
+</table>
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'bankadmin/bankadmindesign.html' %}
+{% block bankadminblock %}
+{% load staticfiles %}
+{% csrf_token %}
+<style>
+    .loan{
+     position: absolute;
+    top:20px;
+    left:30px;
+    padding:5px;
+
+    }
+    .loan table{
+    width:50em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.loan table tr th{
+background:rgb(0, 102, 0);
+padding:5px;
+}
+.loan table tr td{
+background:rgba(0, 102, 0,0.4);
+padding:5px;
+}
+.loan table tr:hover td{
+background:rgba(0,0,0,0.5);
+}
+.loanrequestloan{
+ border-style:solid;
+ border-width:1px;
+ height:180px;
+ width:410px;
+ margin-top:-70px;
+ margin-left:840px;
+ background: url("{% static 'image7.jpg' %}");
+ background-size: 100%100%;
+
+ }
+
+
+
+</style>
+<div class="loan">
+<table>
+    <tr>
+        <th style="color:yellow">Name</th>
+        <th style="color:yellow">MobileNumber</th>
+        <th style="color:yellow">EmailId</th>
+        <th style="color:yellow">LoanType</th>
+        <th style="color:yellow">Request Status</th>
+        <th colspan="2" style="color:yellow">Update Status</th>
+        <th style="color:yellow">Delete</th>
+
+    </tr>
+    <tr>
+    {% for object in list_objects %}
+          <td style="color:white">{{object.name}}</td>
+          <td style="color:white">{{object.phonenumber}}</td>
+          <td style="color:white">{{object.emailid}}</td>
+          <td style="color:white">{{object.loantype}}</td>
+          <td style="color:white">{{object.requestStatus}}</td>
+          <td style="color:white"><a href="{% url 'accept' object.id %}" style="color:white;text-decoration:none">Accept</a></td>
+          <td style="color:white"><a href="{% url 'reject' object.id %}" style="color:white;text-decoration:none">Reject</a></td>
+          <td style="color:white"><a href="{% url 'requestdeleteobj' object.id %}" style="color:white ;text-decoration:none">Delete</a></td>
+
+        </tr>
+     </tr>
+    {% endfor %}
+</table>
+    <div class="loanrequestloan"></div>
+    </div>
+{% endblock %}
